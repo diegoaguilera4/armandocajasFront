@@ -1,4 +1,4 @@
-name: Build and deploy Vue.js app to Azure Web App - armandocajasfront
+name: Build and deploy Vue app to Azure Web App - armandocajasfront
 
 on:
   push:
@@ -9,9 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +23,7 @@ jobs:
       - name: Build Vue app
         run: npm run build
 
-      - name: Zip production build folder
+      - name: Zip build folder
         run: |
           cd dist
           zip -r ../release.zip .
@@ -51,9 +48,9 @@ jobs:
           name: vue-app
 
       - name: Unzip artifact
-        run: unzip release.zip -d .
+        run: unzip release.zip
 
-      - name: 'Deploy to Azure Web App'
+      - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
