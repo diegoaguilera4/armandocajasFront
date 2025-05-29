@@ -1,0 +1,26 @@
+<template>
+    <v-app>
+        <DrawerMenu />
+        <v-main style="background-color: #E0E0E0;">
+            <v-card style="margin-left: 2%; margin-bottom: 2%; margin-right: 2%; border-radius: 20px;">
+                <TablaArmadosRevisorCsf/>
+            </v-card>
+        </v-main>
+    </v-app>
+</template>
+
+<script>
+import DrawerMenu from '@/components/menus/DrawerMenu.vue';
+import TablaArmadosRevisorCsf from '@/components/tablas/armado/TablaArmadosRevisorCsf.vue';
+
+export default {
+    components: {
+        DrawerMenu, TablaArmadosRevisorCsf
+    },
+    data: () => ({
+
+    }),
+}
+</script>
+
+<style></style>
